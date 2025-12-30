@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booklet MAKRAB MAGNET 25</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Montserrat:wght@300;400;600&display=swap');
+
+        :root {
+            --dark-brown: #4E342E;
+            --clay: #8D6E63;
+            --sand: #D7CCC8;
+            --cream: #FDFBF7;
+            --accent: #A1887F;
+            --forest: #556B2F;
+        }
+
+        body {
+            background-color: #E5E0D8;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-brown);
+            margin: 0;
+            padding: 10px; /* Diperkecil untuk HP */
+            display: flex;
+            justify-content: center;
+        }
+
+        .booklet {
+            max-width: 850px;
+            width: 100%;
+            background-color: var(--cream);
+            background-image: radial-gradient(var(--sand) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            border: 1px solid var(--sand);
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden; /* Agar daun tidak keluar batas */
+        }
+
+        .decor-leaf {
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.1;
+            user-select: none;
+            z-index: 0;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--clay);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 8vw, 3.5rem); /* Responsive font size */
+            margin: 0;
+            color: var(--dark-brown);
+            letter-spacing: 5px;
+        }
+
+        .tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--clay);
+            margin-top: 10px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--dark-brown);
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--sand);
+            margin-left: 20px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--sand);
+            box-shadow: 4px 4px 0px var(--sand);
+            position: relative;
+            z-index: 1;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px solid var(--sand);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 0.9rem;
+            min-width: 500px; /* Mencegah tabel terlalu rapat di HP */
+        }
+
+        th {
+            background-color: var(--clay);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--sand);
+        }
+
+        tr:nth-child(even) { background-color: #FAF9F7; }
+
+        .game-card {
+            background: rgba(255,255,255,0.5);
+            border-left: 4px solid var(--clay);
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .game-card h4 { margin: 5px 0; color: var(--clay); }
+
+        .group-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .group-item {
+            background: #F4ECE6;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .group-item:hover { border-color: var(--clay); }
+
+        .group-item h5 { margin: 0 0 10px 0; border-bottom: 1px solid var(--clay); padding-bottom: 5px;}
+        .group-item ul { padding-left: 18px; margin: 0; font-size: 0.85rem; line-height: 1.6;}
+
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 25px;
+            background: var(--dark-brown);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .checklist div { font-size: 0.9rem; }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--clay);
+            border-top: 1px solid var(--sand);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .booklet { padding: 20px; }
+            .section-title { font-size: 1.6rem; }
+            .checklist { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="booklet">
+    <div class="decor-leaf" style="top: 2%; left: -20px; transform: rotate(15deg);">🌿</div>
+    <div class="decor-leaf" style="bottom: 5%; right: -20px; transform: rotate(-15deg);">🍂</div>
+
+    <header>
+        <h1>MAGNET 25</h1>
+        <div class="tagline">“Gather, Grow Together”</div>
+        <p style="margin-top: 15px; font-size: 0.9rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+            Proses berkumpul, bertumbuh, dan berkembang bersama melalui kebersamaan yang hangat dan penuh makna.
+        </p>
+    </header>
+
+    <section>
+        <div class="section-title">Rundown Acara</div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kegiatan</th>
+                        <th>Waktu</th>
+                        <th>Durasi</th>
+                        <th>PJ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Keberangkatan & Registrasi</td><td>14.00 — 14.30</td><td>30’</td><td>Naswa</td></tr>
+                    <tr><td>Kumpul Perkelompok</td><td>14.30 — 14.45</td><td>15’</td><td>Selvana</td></tr>
+                    <tr><td>Pembukaan MC & Bagi Kamar</td><td>14.45 — 15.15</td><td>30’</td><td>MC</td></tr>
+                    <tr><td>Free Time (Mandi, Shalat)</td><td>15.15 — 18.15</td><td>180’</td><td>Semua</td></tr>
+                    <tr><td>Makan Malam</td><td>18.15 — 19.15</td><td>60’</td><td>Konsumsi</td></tr>
+                    <tr><td>Sharing Session</td><td>19.15 — 20.15</td><td>60’</td><td>MC</td></tr>
+                    <tr><td>Ice Breaking</td><td>20.15 — 21.15</td><td>60’</td><td>MC</td></tr>
+                    <tr><td>Freetime (Istirahat)</td><td>21.15 — Selesai</td><td>-</td><td>Semua</td></tr>
+                    <tr><td>Kumpul & Outbound</td><td>06.30 — 09.00</td><td>150’</td><td>MC/Acara</td></tr>
+                    <tr><td>Makan & Penutupan</td><td>09.15 — 10.30</td><td>75’</td><td>Panitia</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title">Aktivitas Outbound</div>
+        <div class="info-grid">
+            <div class="game-card">
+                <h4>💧 Game Air</h4>
+                <ul>
+                    <li><strong>Voli Air:</strong> Kerja sama tim melempar balon menggunakan sarung tanpa pecah.</li>
+                    <li><strong>Estafet Balon:</strong> Memindahkan balon di atas kepala atau di antara perut/dada.</li>
+                </ul>
+            </div>
+            <div class="game-card">
+                <h4>🌿 Game Darat</h4>
+                <ul>
+                    <li><strong>Estafet Sedotan:</strong> Memindahkan sedotan ke botol hanya menggunakan mulut.</li>
+                    <li><strong>Ular Balon:</strong> Berjalan bersama sambil menjepit balon di perut tanpa tangan.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title">Daftar Kelompok</div>
+        <div class="group-container">
+            <div class="group-item">
+                <h5>Kelompok 1</h5>
+                <ul><li>Sulton</li><li>Rico</li><li>Fikri</li><li>Salwa</li><li>Puspa</li><li>Jasmine</li><li>Abdila Syifa</li></ul>
+            </div>
+            <div class="group-item">
+                <h5>Kelompok 2</h5>
+                <ul><li>Dewi</li><li>Rio</li><li>Arkan</li><li>Alvendro</li><li>Fania</li><li>Annisa</li><li>Amanda</li></ul>
+            </div>
+            <div class="group-item">
+                <h5>Kelompok 3</h5>
+                <ul><li>Djenar</li><li>Dzaki Surya</li><li>Raihan</li><li>Mahendra</li><li>Nabila</li><li>Selvina</li><li>Niha</li></ul>
+            </div>
+            <div class="group-item">
+                <h5>Kelompok 4</h5>
+                <ul><li>Amelia</li><li>Este</li><li>Abdurrafi</li><li>Ahmad Rasyid</li><li>Clara</li><li>Dhaifina</li><li>Zainadine</li></ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title">Perlengkapan Wajib</div>
+        <div class="checklist">
+            <div>• Baju bebas & Outbound</div>
+            <div>• Sandal & Plastik baju basah</div>
+            <div>• Alat shalat & Alat mandi</div>
+            <div>• Tumbler (isi air)</div>
+            <div>• Snack wajib (Roti)</div>
+            <div>• Obat-obatan pribadi</div>
+            <div>• Baju hangat/selimut (ops)</div>
+            <div>• Skincare/Make up (ops)</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Sampai jumpa di lokasi! Jangan lupa bawa semangat kebersamaan.</p>
+        <p><strong>MAGNET UPNVYK - 25</strong></p>
+    </footer>
+</div>
+
+</body>
+</html>
